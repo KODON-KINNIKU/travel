@@ -17,6 +17,7 @@ nav {
     background: #2e7d32;
     display: flex;
     justify-content: center;
+    z-index: 10;
 }
 nav button {
     background: none;
@@ -24,6 +25,7 @@ nav button {
     color: white;
     padding: 15px 25px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .section {
@@ -37,133 +39,365 @@ nav button {
 .card {
     background: white;
     margin: 12px 0;
-    padding: 12px;
+    padding: 12px 14px;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 14px;
 }
 
 h2 {
     border-left: 6px solid #4CAF50;
     padding-left: 10px;
+    margin-top: 20px;
 }
 
 .time { color:#2e7d32; font-weight:bold; }
-.move { color:#1565c0; }
+.move { color:#1565c0; font-weight:bold; }
+.place { font-weight:bold; }
 
 details { margin-top:8px; }
 summary { cursor:pointer; font-weight:bold; }
 
-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 10px;
+.tag {
+    display:inline-block;
+    font-size:11px;
+    padding:2px 6px;
+    border-radius:6px;
+    background:#e3f2fd;
+    color:#1565c0;
+    margin-right:4px;
+}
+
+.meal {
+    font-size:12px;
+    color:#555;
+    margin-top:4px;
 }
 </style>
 
 <script>
 function showSection(id){
- document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 </script>
-
 </head>
 
 <body>
 
 <nav>
-<button onclick="showSection('plan')">行程表</button>
-<button onclick="showSection('detail')">店舗・ホテル詳細</button>
+  <button onclick="showSection('plan')">行程表</button>
+  <button onclick="showSection('detail')">施設・店舗詳細</button>
 </nav>
 
 <!-- 行程表 -->
 <div id="plan" class="section active">
 
-<h2>1日目</h2>
-<div class="card"><span class="time">6:30〜11:45</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">11:45〜12:45</span><br>出島</div>
-<div class="card"><span class="time">12:45〜14:00</span><br>オランダ物産館</div>
-<div class="card"><span class="time">14:00〜15:00</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">15:00〜17:15</span><br>平和学習</div>
-<div class="card"><span class="time">17:15〜</span><br>ホテル到着（長崎ブルースカイホテル）</div>
+<h2>全体情報</h2>
+<div class="card">
+  <div><span class="tag">方面</span> 長崎・福岡・熊本</div>
+  <div><span class="tag">期間</span> 令和8年 5月19日（火）〜 5月21日（木） 2泊3日</div>
+  <div><span class="tag">バス</span> 大型バス4台</div>
+</div>
 
-<h2>2日目</h2>
-<div class="card"><span class="time">8:00〜9:15</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">9:15〜10:20</span><br>宇宙科学館</div>
-<div class="card"><span class="time">10:20〜11:00</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">11:00〜12:00</span><br>龍登園</div>
-<div class="card"><span class="time">12:00〜13:00</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">13:00〜14:30</span><br>工場見学</div>
-<div class="card"><span class="time">14:30〜17:45</span><br><span class="move">移動・観光</span></div>
-<div class="card"><span class="time">17:45〜20:00</span><br>キャナルシティ</div>
-<div class="card"><span class="time">20:00〜</span><br>ホテル到着（博多グリーンホテル）</div>
+<h2>1日目（5/19・火） 長崎方面</h2>
 
-<h2>3日目</h2>
-<div class="card"><span class="time">8:00〜9:30</span><br><span class="move">移動</span></div>
-<div class="card"><span class="time">9:30〜13:15</span><br>グリーンランド</div>
-<div class="card"><span class="time">13:15〜16:30</span><br><span class="move">移動 → 学校</span></div>
+<div class="card">
+  <span class="time">6:30</span><br>
+  <span class="move">学校 出発</span><br>
+  集合・点呼後、バス4台で長崎へ移動。
+  <div class="meal">朝食：ー（各自）</div>
+</div>
+
+<div class="card">
+  <span class="time">6:30〜11:45</span><br>
+  <span class="move">移動（学校 → 長崎・出島）</span><br>
+  途中、トイレ休憩をはさみながら長崎市内へ。
+</div>
+
+<div class="card">
+  <span class="time">11:45〜12:30</span><br>
+  <span class="place">出島 見学</span><br>
+  江戸時代の海外交流の様子を学ぶフィールドワーク。
+  <div class="meal">昼食：この後のオランダ物産館にて</div>
+</div>
+
+<div class="card">
+  <span class="time">12:30〜14:45</span><br>
+  <span class="place">オランダ物産館（昼食・お土産）</span><br>
+  昼食をとり、その後お土産購入の時間。
+  <ul>
+    <li>班ごとに行動し、時間厳守で集合。</li>
+    <li>長崎名物・お菓子・雑貨など購入可能。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="time">14:45〜15:00</span><br>
+  <span class="move">移動（オランダ物産館 → 長崎平和公園）</span>
+</div>
+
+<div class="card">
+  <span class="time">15:00〜15:45</span><br>
+  <span class="place">長崎平和公園</span><br>
+  平和祈念像周辺で平和学習・黙祷・記念撮影など。
+</div>
+
+<div class="card">
+  <span class="time">15:45〜17:15</span><br>
+  <span class="place">長崎原爆資料館 見学</span><br>
+  戦争と核兵器の悲惨さ、平和の大切さについて学習。
+</div>
+
+<div class="card">
+  <span class="time">17:15頃〜</span><br>
+  <span class="move">ホテル到着</span><br>
+  宿泊：<span class="place">長崎ブルースカイホテル</span><br>
+  チェックイン・入浴・夕食・班長会など。
+  <div class="meal">夕食：ホテル</div>
+</div>
+
+<h2>2日目（5/20・水） 佐賀・福岡方面</h2>
+
+<div class="card">
+  <span class="time">朝</span><br>
+  <span class="place">長崎ブルースカイホテル</span><br>
+  朝食後、荷物整理・チェックアウト。
+  <div class="meal">朝食：ホテル</div>
+</div>
+
+<div class="card">
+  <span class="time">8:00〜9:15</span><br>
+  <span class="move">移動（長崎 → 佐賀宇宙科学館）</span>
+</div>
+
+<div class="card">
+  <span class="time">9:15〜10:20</span><br>
+  <span class="place">佐賀県立 宇宙科学館</span><br>
+  宇宙・地球・科学技術についての体験型学習。
+</div>
+
+<div class="card">
+  <span class="time">10:20〜10:40頃</span><br>
+  <span class="move">移動（宇宙科学館 → 龍登園）</span>
+</div>
+
+<div class="card">
+  <span class="time">10:40〜12:00</span><br>
+  <span class="place">龍登園（入浴・昼食）</span><br>
+  温泉旅館での入浴・昼食・休憩。
+  <div class="meal">昼食：レストラン（龍登園）</div>
+</div>
+
+<div class="card">
+  <span class="time">12:00〜13:00</span><br>
+  <span class="move">移動（龍登園 → 福岡・佐賀 工場）</span>
+</div>
+
+<div class="card">
+  <span class="time">13:00〜16:00</span><br>
+  <span class="place">福岡・佐賀 工場見学</span><br>
+  企業の生産工程や働き方を学ぶキャリア学習。
+</div>
+
+<div class="card">
+  <span class="time">16:00〜17:15</span><br>
+  <span class="place">太宰府天満宮 参拝</span><br>
+  学問の神様を祀る神社で参拝・散策。
+</div>
+
+<div class="card">
+  <span class="time">17:15〜19:30</span><br>
+  <span class="place">キャナルシティ博多</span><br>
+  大型商業施設で自由行動（買い物・夕食）。<br>
+  <div class="meal">夕食：ミールクーポン（各自好きな店で）</div>
+</div>
+
+<div class="card">
+  <span class="time">19:30〜20:00頃</span><br>
+  <span class="move">移動（キャナルシティ → ホテル）</span>
+</div>
+
+<div class="card">
+  <span class="time">20:00頃〜</span><br>
+  <span class="move">ホテル到着</span><br>
+  宿泊：<span class="place">博多グリーンホテル</span><br>
+  チェックイン・入浴・就寝準備。
+</div>
+
+<h2>3日目（5/21・木） 熊本方面</h2>
+
+<div class="card">
+  <span class="time">朝</span><br>
+  <span class="place">博多グリーンホテル</span><br>
+  朝食後、荷物整理・チェックアウト。
+  <div class="meal">朝食：ホテル</div>
+</div>
+
+<div class="card">
+  <span class="time">8:00〜9:30</span><br>
+  <span class="move">移動（福岡 → グリーンランド）</span>
+</div>
+
+<div class="card">
+  <span class="time">9:30〜13:15</span><br>
+  <span class="place">グリーンランド（遊園地）</span><br>
+  九州最大級の遊園地で班別自由行動。<br>
+  <div class="meal">昼食：園内ミールクーポン</div>
+</div>
+
+<div class="card">
+  <span class="time">13:15〜16:30頃</span><br>
+  <span class="move">移動（グリーンランド → 学校）</span><br>
+  途中、トイレ休憩をはさみながら帰校。<br>
+  <div class="meal">夕食：ー（帰宅後 各家庭）</div>
+</div>
 
 </div>
 
-<!-- 詳細 -->
+<!-- 施設・店舗詳細 -->
 <div id="detail" class="section">
 
 <h2>宿泊ホテル</h2>
 
-<div class="card"><b>長崎ブルースカイホテル</b></div>
-<div class="card"><b>博多グリーンホテル</b></div>
-
-<h2>施設詳細</h2>
-
-<div class="card"><b>出島</b></div>
-<div class="card"><b>オランダ物産館</b></div>
-<div class="card"><b>平和公園・原爆資料館</b></div>
-<div class="card"><b>宇宙科学館</b></div>
-<div class="card"><b>龍登園</b></div>
-<div class="card"><b>工場見学</b></div>
-<div class="card"><b>太宰府天満宮</b></div>
-
 <div class="card">
-<b>キャナルシティ</b>
-
-<details>
-<summary>▶ 説明</summary>
-大型商業施設で買い物・食事・エンタメが楽しめる。
-</details>
-
-<details>
-<summary>▶ 店舗例</summary>
-・ラーメンスタジアム（各地ラーメン）<br>
-・マクドナルド<br>
-・スターバックス<br>
-・ユニクロ<br>
-・雑貨・服・お土産店多数
-</details>
-<details>
-<summary>▶ マップ</summary>
-<iframe src="https://platinumaps.jp/d/canal-city?culture=ja" width="100%" height="500" frameborder="0"></iframe>
-
-</details>
+  <b>長崎ブルースカイホテル</b><br>
+  <span class="tag">長崎市内</span> <span class="tag">夜景</span>
+  <details>
+    <summary>▶ ホテル情報（クリックで開く）</summary>
+    ・長崎市内を一望できる高台にあるホテル。<br>
+    ・和室・洋室があり、団体受け入れ実績も豊富。<br>
+    ・大浴場あり。夜は長崎の夜景を楽しめる。<br>
+    ・夕食は和洋折衷の団体向けメニューが中心。
+  </details>
 </div>
 
 <div class="card">
-<b>グリーンランド</b>
+  <b>博多グリーンホテル</b><br>
+  <span class="tag">博多駅周辺</span> <span class="tag">アクセス良好</span>
+  <details>
+    <summary>▶ ホテル情報（クリックで開く）</summary>
+    ・博多駅から徒歩圏内のシティホテル。<br>
+    ・周辺にコンビニ・飲食店が多く便利。<br>
+    ・朝食はビュッフェ形式が多く、和洋メニューが選べる。<br>
+    ・修学旅行など団体利用にも対応。
+  </details>
+</div>
 
-<details>
-<summary>▶ 説明</summary>
-九州最大級の遊園地でアトラクションが豊富。
-</details>
+<h2>見学施設・観光地</h2>
 
-<details>
-<summary>▶ 店舗一覧</summary>
-味千ラーメン / アンジェ / アンダルシア / パームテラス / ハリケーン / ピットカフェ / ベリーズ / カフェベリーズ
-</details>
+<div class="card">
+  <b>出島</b> <span class="tag">歴史</span> <span class="tag">社会科</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・江戸時代、日本で唯一の海外との窓口だった人工島。<br>
+    ・復元された建物の中で、当時の貿易や生活の様子を学べる。<br>
+    ・ガイドツアーや展示パネルで、鎖国と国際交流の歴史を理解できる。
+  </details>
+</div>
 
-<details>
-<summary>▶ マップ</summary>
-<img src="greeen.JPG">
-</details>
+<div class="card">
+  <b>オランダ物産館</b> <span class="tag">昼食</span> <span class="tag">お土産</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・長崎ならではの洋風料理を中心としたレストランで昼食。<br>
+    ・カステラ・チョコレート・雑貨など、オランダや長崎に関連した商品が多い。<br>
+    ・団体用の食事会場があり、クラスごとにまとまって食事ができる。<br>
+    ・食後にお土産購入の時間が確保されている。
+  </details>
+</div>
 
+<div class="card">
+  <b>長崎平和公園・長崎原爆資料館</b> <span class="tag">平和学習</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・平和祈念像や噴水など、原爆の悲惨さと平和への願いを象徴する場所。<br>
+    ・資料館では、被爆当時の写真・遺品・映像資料などを通して、戦争と核兵器の恐ろしさを学ぶ。<br>
+    ・事前・事後学習と組み合わせることで、より深い学びにつながる。
+  </details>
+</div>
+
+<div class="card">
+  <b>佐賀県立 宇宙科学館</b> <span class="tag">理科</span> <span class="tag">体験学習</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・宇宙・地球・生命などをテーマにした体験型展示が多い科学館。<br>
+    ・プラネタリウムや実験ショーなど、楽しみながら学べるコンテンツが充実。<br>
+    ・班ごとに自由見学し、興味のある分野を深めることができる。
+  </details>
+</div>
+
+<div class="card">
+  <b>龍登園</b> <span class="tag">温泉</span> <span class="tag">昼食</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・佐賀県にある温泉旅館。<br>
+    ・大浴場や露天風呂で、移動の疲れをリフレッシュできる。<br>
+    ・団体向けの昼食会場があり、和食中心のメニューが提供されることが多い。<br>
+    ・短時間でも「旅館らしさ」を味わえる貴重な時間。
+  </details>
+</div>
+
+<div class="card">
+  <b>福岡・佐賀 工場見学</b> <span class="tag">キャリア教育</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・食品・飲料・自動車部品など、地域の産業を支える工場を見学。<br>
+    ・製造ラインや品質管理の様子を間近で見ることができる。<br>
+    ・働く人の話を聞くことで、「仕事」や「職業観」について考えるきっかけになる。
+  </details>
+</div>
+
+<div class="card">
+  <b>太宰府天満宮</b> <span class="tag">学問の神様</span> <span class="tag">歴史</span>
+  <details>
+    <summary>▶ 詳細（クリックで開く）</summary>
+    ・菅原道真公を祀る、学問の神様として有名な神社。<br>
+    ・参道には梅ヶ枝餅などの名物店が並び、散策も楽しめる。<br>
+    ・合格祈願や学業成就を願って参拝する人が多い。
+  </details>
+</div>
+
+<div class="card">
+  <b>キャナルシティ博多</b> <span class="tag">ショッピング</span> <span class="tag">自由行動</span>
+  <details>
+    <summary>▶ 説明（クリックで開く）</summary>
+    ・運河を中心にレストラン・ショップ・シネマなどが集まる大型商業施設。<br>
+    ・噴水ショーやイベントも行われ、エンタメ性が高いスポット。
+  </details>
+
+  <details>
+    <summary>▶ 主な店舗例（クリックで開く）</summary>
+    ・ラーメンスタジアム（全国各地のラーメン店が集結）<br>
+    ・マクドナルド / ケンタッキー などファストフード<br>
+    ・スターバックス / タリーズ などカフェ<br>
+    ・ユニクロ / 無印良品 / 雑貨店 / お土産店 など多数
+  </details>
+
+  <details>
+    <summary>▶ マップ（クリックで開く）</summary>
+    <iframe src="https://platinumaps.jp/d/canal-city?culture=ja" width="100%" height="500" frameborder="0"></iframe>
+  </details>
+</div>
+
+<div class="card">
+  <b>グリーンランド</b> <span class="tag">遊園地</span> <span class="tag">班別行動</span>
+  <details>
+    <summary>▶ 説明（クリックで開く）</summary>
+    ・九州最大級の遊園地で、ジェットコースターや観覧車など多彩なアトラクションがある。<br>
+    ・班ごとに計画を立てて行動し、時間管理や協力の大切さも学べる。
+  </details>
+
+  <details>
+    <summary>▶ 主な飲食店（クリックで開く）</summary>
+    味千ラーメン / アンジェ / アンダルシア / パームテラス / ハリケーン / ピットカフェ / ベリーズ / カフェベリーズ など。<br>
+    ミールクーポンを使って、各自好きな店で昼食をとることができる。
+  </details>
+
+  <details>
+    <summary>▶ 園内マップ（クリックで開く）</summary>
+    <img src="greeen.JPG" alt="グリーンランド園内マップ" style="width:100%;border-radius:10px;margin-top:10px;">
+  </details>
 </div>
 
 </div>
